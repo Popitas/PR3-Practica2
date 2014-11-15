@@ -2,8 +2,8 @@ package Práctica2;
 
 public class DatosEstadisticos {
 
-    float tiempo;
-    int nComparaciones, nMovimientos;
+    private float tiempo;
+    private int nComparaciones, nMovimientos;
     
     public DatosEstadisticos() {
         tiempo = 0;
