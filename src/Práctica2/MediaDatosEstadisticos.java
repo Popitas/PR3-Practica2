@@ -12,10 +12,10 @@ public class MediaDatosEstadisticos {
     }
     
     public float dameMediaComparaciones() {
-    
+        return (float) 2.0;
     }
     
     public float dameMediaMovimientos() {
-    
+        return (float) 5.0;
     }
 }
