@@ -3,7 +3,7 @@ package Práctica2;
 public class DatosEstadisticos {
 
     private float tiempo;
-    private int nComparaciones, nMovimientos;
+    private long nComparaciones, nMovimientos;
     
     public DatosEstadisticos() {
         tiempo = 0;
@@ -28,11 +28,11 @@ public class DatosEstadisticos {
         this.tiempo = tiempo;
     }
     
-    public void estableceComparaciones(int n) {
+    public void estableceComparaciones(long n) {
         nComparaciones = n;
     }
 
-    public void estableceMovimientos(int n) {
+    public void estableceMovimientos(long n) {
         nMovimientos = n;
     }
     
@@ -40,11 +40,11 @@ public class DatosEstadisticos {
         return tiempo;
     }
 
-    public int dameComparaciones() {
+    public long dameComparaciones() {
         return nComparaciones;
     }
 
-    public int dameMovimientos() {
+    public long dameMovimientos() {
         return nMovimientos;
     }
 

@@ -13,14 +13,12 @@ public class Ordenar2Vector implements OrdenarVector{
         
         int dist = vector.length/2;
         
-        de.añadeComparacion();
         while (dist > 0) {
             
-            de.añadeComparacion();
             for (int i = 0; i < vector.length - dist; i++) {
                 int j = i+dist;
                 
-                de.añadeComparacion(); de.añadeComparacion();
+                de.añadeComparacion(); 
                 // cambio algoritmo pdf: j>dist cambia a:
                 while((j>=dist) && (vector[j] < vector[j-dist])) {
                     int aux = vector[j];
