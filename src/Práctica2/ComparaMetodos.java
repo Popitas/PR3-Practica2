@@ -60,13 +60,13 @@ public class ComparaMetodos {
             if (String.valueOf(inverso2[i].dameMovimientos()).length() < 8) {
                 System.out.printf("%5d" + "\t\t\t", inverso2[i].dameMovimientos());
                 
-                System.out.printf("%5.4f" + "\t" + "%5.4f" + "\t" + "%5.4f" + "\n", aleatorio1[i].dameMediaTiempos(),
-                        aleatorio1[i].dameMediaComparaciones(), aleatorio1[i].dameMediaMovimientos());
+                System.out.printf("%5.4f" + "\t" + "%5.4f" + "\t" + "%5.4f" + "\n", aleatorio2[i].dameMediaTiempos(),
+                        aleatorio2[i].dameMediaComparaciones(), aleatorio2[i].dameMediaMovimientos());
             } else {
                 System.out.printf("%5d" + "\t\t", inverso2[i].dameMovimientos());
                 
                 System.out.printf("%5.4f" + "\t" + "%5.4f" + "\t" + "%5.4f" + "\n\n", aleatorio1[i].dameMediaTiempos(),
-                        aleatorio1[i].dameMediaComparaciones(), aleatorio1[i].dameMediaMovimientos());                
+                        aleatorio2[i].dameMediaComparaciones(), aleatorio2[i].dameMediaMovimientos());                
             }
         }
     }
