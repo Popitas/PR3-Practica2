@@ -23,10 +23,10 @@ public class ComparaMetodos {
         
         for (int i = 0; i < inverso2.length; i++) {
             System.out.printf("%6d     %5.4f      %5d         %5d", tamaños[i], inverso1[i].dameTiempo(), 
-                    inverso1[1].dameComparaciones(), inverso1[i].dameMovimientos());
+                    inverso1[i].dameComparaciones(), inverso1[i].dameMovimientos());
             
             System.out.printf("              %5.4f    %5.4f    %5.4f\n", aleatorio1[i].dameMediaTiempos(), 
-                    aleatorio1[1].dameMediaComparaciones(), aleatorio1[i].dameMediaMovimientos());
+                    aleatorio1[i].dameMediaComparaciones(), aleatorio1[i].dameMediaMovimientos());
         }
         
         
@@ -39,10 +39,10 @@ public class ComparaMetodos {
         
         for (int i = 0; i < inverso2.length; i++) {
             System.out.printf("%6d     %5.4f      %5d         %5d", tamaños[i], inverso2[i].dameTiempo(), 
-                    inverso2[1].dameComparaciones(), inverso2[i].dameMovimientos());
+                    inverso2[i].dameComparaciones(), inverso2[i].dameMovimientos());
             
             System.out.printf("              %5.4f    %5.4f    %5.4f\n", aleatorio2[i].dameMediaTiempos(), 
-                    aleatorio2[1].dameMediaComparaciones(), aleatorio2[i].dameMediaMovimientos());
+                    aleatorio2[i].dameMediaComparaciones(), aleatorio2[i].dameMediaMovimientos());
         }
         
         
