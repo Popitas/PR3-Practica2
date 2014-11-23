@@ -22,7 +22,6 @@ public class DatosEstadisticos {
     public void añadeMovimiento() {
         nMovimientos++;
     }
-
     
     public void estableceTiempo(float tiempo) {
         this.tiempo = tiempo;

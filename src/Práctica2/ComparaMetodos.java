@@ -12,62 +12,51 @@ public class ComparaMetodos {
         DatosEstadisticos[] inverso2 = CalculadorEstadisticas.estadisticasOrdenaVectoresInversos(new Ordenar2Vector(), tamaños);
         MediaDatosEstadisticos[] aleatorio2 = CalculadorEstadisticas.estadisticasOrdenaVectoresAleatorios(new Ordenar2Vector(), tamaños);
 
-        System.out.println("Resultados prueba algoritmo George: ");
+        mostrar("Práctica1", tamaños, inverso1, aleatorio1);
+        mostrar("Shell", tamaños, inverso2, aleatorio2);
+    }
 
-        System.out.println("                    Vector Inverso                    "
-                + "            Vector aleatorio");
-        System.out.println("Orden" + "\t" + "Tiempo" + "\t" + "N Comparaciones" + "\t" + "N Movimientos"
-                + "\t" + "|" + "\t" + "Tiempo" + "\t" + "N Comparaciones" + "\t" + "N Movimientos");
+    private static void mostrar(String nombreAlgoritmo, int[] tamaños, DatosEstadisticos[] inverso, MediaDatosEstadisticos[] aleatorio) {
+        System.out.println("Resultados prueba algoritmo " + nombreAlgoritmo + ": \n");
+        
+        System.out.println(centerString("Vector Inverso", 40));
+        printTableHeader();
+        printInverseVectorTable(tamaños, inverso);
 
-        for (int i = 0; i < inverso2.length; i++) {
-            if (String.valueOf(inverso1[i].dameComparaciones()).length() < 8) {
-                System.out.printf("%6d" + "\t" + "%5.4f" + "\t" + "%5d" + "\t\t", tamaños[i], inverso1[i].dameTiempo(),
-                        inverso1[i].dameComparaciones());
-            } else {
-                System.out.printf("%6d" + "\t" + "%5.4f" + "\t" + "%5d" +"\t", tamaños[i], inverso1[i].dameTiempo(),
-                        inverso1[i].dameComparaciones());
-            }
+        System.out.println("");
+        
+        System.out.println(centerString("Vector Aleatorio", 40));
+        printTableHeader();
+        printRandomVectorTable(tamaños, aleatorio);
+        
+        System.out.println("");
+    }
 
-            if (String.valueOf(inverso1[i].dameMovimientos()).length() < 8) {
-                System.out.printf("%5d" + "\t\t\t", inverso1[i].dameMovimientos());
-                
-                System.out.printf("%5.4f" + "\t" + "%5.4f" + "\t" + "%5.4f" + "\n", aleatorio1[i].dameMediaTiempos(),
-                        aleatorio1[i].dameMediaComparaciones(), aleatorio1[i].dameMediaMovimientos());
-            } else {
-                System.out.printf("%5d" + "\t\t", inverso1[i].dameMovimientos());
-                
-                System.out.printf("%5.4f" + "\t" + "%5.4f" + "\t" + "%5.4f" + "\n", aleatorio1[i].dameMediaTiempos(),
-                        aleatorio1[i].dameMediaComparaciones(), aleatorio1[i].dameMediaMovimientos());                
-            }
+    private static void printTableHeader() {
+        System.out.printf("%7s %7s %14s %12s\n", "Tamaño", "Tiempo", "Comparaciones", "Movimientos");
+    }
+
+    private static String centerString(String string, int spaceWidth) {
+        String leftSpaces = new String();
+
+        for (int i = 0; i < (spaceWidth / 2 - string.length() / 2); i++) {
+            leftSpaces += " ";
         }
 
-        System.out.println("\n" + "Resultados prueba algoritmo Shell: ");
+        return leftSpaces + string;
+    }
 
-        System.out.println("                    Vector Inverso                    "
-                + "            Vector aleatorio");
-        System.out.println("Orden" + "\t" + "Tiempo" + "\t" + "N Comparaciones" + "\t" + "N Movimientos"
-                + "\t" + "|" + "\t" + "Tiempo" + "\t" + "N Comparaciones" + "\t" + "N Movimientos");
+    private static void printInverseVectorTable(int[] tamaños, DatosEstadisticos[] inverso) {
+        for (int i = 0; i < inverso.length; i++) {
+            System.out.printf("%7d %7.4f %14d %12d\n", tamaños[i], inverso[i].dameTiempo(),
+                    inverso[i].dameComparaciones(), inverso[i].dameMovimientos());
+        }
+    }
 
-        for (int i = 0; i < inverso2.length; i++) {
-            if (String.valueOf(inverso2[i].dameComparaciones()).length() < 8) {
-                System.out.printf("%6d" + "\t" + "%5.4f" + "\t" + "%5d" + "\t\t", tamaños[i], inverso2[i].dameTiempo(),
-                        inverso2[i].dameComparaciones());
-            } else {
-                System.out.printf("%6d" + "\t" + "%5.4f" + "\t" + "%5d" +"\t", tamaños[i], inverso2[i].dameTiempo(),
-                        inverso2[i].dameComparaciones());
-            }
-
-            if (String.valueOf(inverso2[i].dameMovimientos()).length() < 8) {
-                System.out.printf("%5d" + "\t\t\t", inverso2[i].dameMovimientos());
-                
-                System.out.printf("%5.4f" + "\t" + "%5.4f" + "\t" + "%5.4f" + "\n", aleatorio2[i].dameMediaTiempos(),
-                        aleatorio2[i].dameMediaComparaciones(), aleatorio2[i].dameMediaMovimientos());
-            } else {
-                System.out.printf("%5d" + "\t\t", inverso2[i].dameMovimientos());
-                
-                System.out.printf("%5.4f" + "\t" + "%5.4f" + "\t" + "%5.4f" + "\n\n", aleatorio1[i].dameMediaTiempos(),
-                        aleatorio2[i].dameMediaComparaciones(), aleatorio2[i].dameMediaMovimientos());                
-            }
+    private static void printRandomVectorTable(int[] tamaños, MediaDatosEstadisticos[] aleatorio) {
+        for (int i = 0; i < aleatorio.length; i++) {
+            System.out.printf("%7d %7.4f %14.0f %12.0f\n", tamaños[i], aleatorio[i].dameMediaTiempos(),
+                    aleatorio[i].dameMediaComparaciones(), aleatorio[i].dameMediaMovimientos());
         }
     }
 }
