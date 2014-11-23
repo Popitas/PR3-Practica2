@@ -18,22 +18,24 @@ public class ComparaMetodos {
 
     private static void mostrar(String nombreAlgoritmo, int[] tamaños, DatosEstadisticos[] inverso, MediaDatosEstadisticos[] aleatorio) {
         System.out.println("Resultados prueba algoritmo " + nombreAlgoritmo + ": \n");
-        
+
         System.out.println(centerString("Vector Inverso", 40));
-        printTableHeader();
-        printInverseVectorTable(tamaños, inverso);
-
-        System.out.println("");
-        
-        System.out.println(centerString("Vector Aleatorio", 40));
-        printTableHeader();
-        printRandomVectorTable(tamaños, aleatorio);
-        
-        System.out.println("");
-    }
-
-    private static void printTableHeader() {
         System.out.printf("%7s %7s %14s %12s\n", "Tamaño", "Tiempo", "Comparaciones", "Movimientos");
+        for (int i = 0; i < inverso.length; i++) {
+            System.out.printf("%7d %7.4f %14d %12d\n", tamaños[i], inverso[i].dameTiempo(),
+                    inverso[i].dameComparaciones(), inverso[i].dameMovimientos());
+        }
+
+        System.out.println("");
+
+        System.out.println(centerString("Vector Aleatorio", 40));
+        System.out.printf("%7s %7s %14s %12s\n", "Tamaño", "Tiempo", "Comparaciones", "Movimientos");
+        for (int i = 0; i < aleatorio.length; i++) {
+            System.out.printf("%7d %7.4f %14.0f %12.0f\n", tamaños[i], aleatorio[i].dameMediaTiempos(),
+                    aleatorio[i].dameMediaComparaciones(), aleatorio[i].dameMediaMovimientos());
+        }
+
+        System.out.println("");
     }
 
     private static String centerString(String string, int spaceWidth) {
@@ -46,17 +48,4 @@ public class ComparaMetodos {
         return leftSpaces + string;
     }
 
-    private static void printInverseVectorTable(int[] tamaños, DatosEstadisticos[] inverso) {
-        for (int i = 0; i < inverso.length; i++) {
-            System.out.printf("%7d %7.4f %14d %12d\n", tamaños[i], inverso[i].dameTiempo(),
-                    inverso[i].dameComparaciones(), inverso[i].dameMovimientos());
-        }
-    }
-
-    private static void printRandomVectorTable(int[] tamaños, MediaDatosEstadisticos[] aleatorio) {
-        for (int i = 0; i < aleatorio.length; i++) {
-            System.out.printf("%7d %7.4f %14.0f %12.0f\n", tamaños[i], aleatorio[i].dameMediaTiempos(),
-                    aleatorio[i].dameMediaComparaciones(), aleatorio[i].dameMediaMovimientos());
-        }
-    }
 }
